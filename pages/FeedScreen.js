@@ -1,11 +1,7 @@
-//This is an example code for Bottom Navigation//
 import React from 'react';
-//import react in our code.
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-//import all the basic component we have used
  
-export default class SettingsScreen extends React.Component {
-  //Setting Screen to show in Setting Option
+export default class FeedScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -14,7 +10,7 @@ export default class SettingsScreen extends React.Component {
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => this.props.navigation.navigate('Home')}>
+            onPress={() => this.props.navigation.navigate('Search')}>
             <Text>Go to Home Tab</Text>
           </TouchableOpacity>
           <TouchableOpacity

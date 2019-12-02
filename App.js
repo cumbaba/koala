@@ -5,94 +5,107 @@ import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
  
-import HomeScreen from './pages/HomeScreen';
-import SettingsScreen from './pages/SettingsScreen';
+import SearchScreen from './pages/SearchScreen';
+import SportsScreen from './pages/SportsScreen';
+import FeedScreen from './pages/FeedScreen';
 import TeamScreen from './pages/TeamScreen';
 import ProfileScreen from './pages/ProfileScreen';
-const HomeStack = createStackNavigator(
+
+const SearchStack = createStackNavigator(
   {
-    //Defination of Navigaton from home screen
-    Home: { screen: HomeScreen },
-    Settings: { screen: SettingsScreen },
-    Teams: { screen: TeamScreen },
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
+    Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
   },
   {
     defaultNavigationOptions: {
-      //Header customization of the perticular Screen
       headerStyle: {
         backgroundColor: '#EB9005',
       },
       headerTintColor: '#FFFFFF',
       title: 'welcome sevgili koala',
-      //Header title
     },
   }
 );
 const TeamStack = createStackNavigator(
   {
-    //Defination of Navigaton from setting screen
-    Home: { screen: HomeScreen },
-    Settings: { screen: SettingsScreen },
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
   },
   {
     defaultNavigationOptions: {
-      //Header customization of the perticular Screen
       headerStyle: {
         backgroundColor: '#EB9005',
       },
       headerTintColor: '#FFFFFF',
-      title: 'Settings',
-      //Header title
+      title: 'Team',
     },
   }
 );
 const ProfileStack = createStackNavigator(
   {
-    //Defination of Navigaton from setting screen
-    Home: { screen: HomeScreen },
-    Settings: { screen: SettingsScreen },
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
   },
   {
     defaultNavigationOptions: {
-      //Header customization of the perticular Screen
       headerStyle: {
         backgroundColor: '#EB9005',
       },
       headerTintColor: '#FFFFFF',
       title: 'Profile',
-      //Header title
     },
   }
 );
-const SettingsStack = createStackNavigator(
+const SportsStack = createStackNavigator(
   {
-    //Defination of Navigaton from setting screen
-    Home: { screen: HomeScreen },
-    Settings: { screen: SettingsScreen },
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
   },
   {
     defaultNavigationOptions: {
-      //Header customization of the perticular Screen
       headerStyle: {
         backgroundColor: '#EB9005',
       },
       headerTintColor: '#FFFFFF',
-      title: 'Settings',
-      //Header title
+      title: 'Sports',
+    },
+  }
+);
+const FeedStack = createStackNavigator(
+  {
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
+    Team: { screen: TeamScreen },
+    Profile: { screen: ProfileScreen },
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#EB9005',
+      },
+      headerTintColor: '#FFFFFF',
+      title: 'Feed',
     },
   }
 );
 const App = createBottomTabNavigator(
   {
-    Home: { screen: HomeScreen },
-    Settings: { screen: SettingsScreen },
+    Feed: { screen: FeedScreen },
+    Sports: { screen: SportsScreen },
+    Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
   },
@@ -102,13 +115,15 @@ const App = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let IconComponent = Ionicons;
         let iconName;
-        if (routeName === 'Home') {
+        if (routeName === 'Feed') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        }else if (routeName === 'Sports') {
+          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Search') {
+          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
         }else if (routeName === 'Team') {
           iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Profile') {
-          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
-        }else if (routeName === 'Settings') {
+        }else if (routeName === 'Profile') {
           iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
         }
         return <IconComponent name={iconName} size={25} color={tintColor} />;

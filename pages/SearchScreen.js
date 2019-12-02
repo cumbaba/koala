@@ -5,12 +5,7 @@ import { SafeAreaView, ScrollView, Text, View,StatusBar, TouchableOpacity, Style
 
 import places from '.././data/places.json';
 
-export default class HomeScreen extends React.Component {
-
-  constructor(props){
-    super(props);
-    console.log(places.data);
-  }
+export default class SearchScreen extends React.Component {
   render() {
     return (
 
@@ -27,7 +22,7 @@ export default class HomeScreen extends React.Component {
                   latitudeDelta: 0.0922,
                   longitudeDelta: 0.0421,
                 }}>
-{
+            {
               places.data.map(marker => (
                 <MapView.Marker 
                 key={marker.id}
