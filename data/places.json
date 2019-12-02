@@ -1,0 +1,26 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"coordinates": 
+			{
+				"latitude": 41.046788,
+				"longitude": 29.006163
+			},
+			"title": "abbasaga adamlari",
+			"capacity": 20,
+			"flags": ["basketball", "hip-hop", "zenciler", "cigara"]
+		},
+		{
+			"id": "2",
+			"coordinates": 
+			{
+				"latitude": 40.979833,
+				"longitude": 29.038306
+			},
+			"title": "moda bebeleri",
+			"capacity": 30,
+			"flags": ["götçüler", "götçüler", "götçüler", "götçüler"]
+		}
+	]
+}
