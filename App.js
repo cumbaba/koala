@@ -3,18 +3,22 @@ import { Button, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
  
 import SearchScreen from './pages/SearchScreen';
-import SportsScreen from './pages/SportsScreen';
 import FeedScreen from './pages/FeedScreen';
 import TeamScreen from './pages/TeamScreen';
 import ProfileScreen from './pages/ProfileScreen';
+import AlarmsScreen from './pages/AlarmsScreen';
+import PeopleScreen from './pages/PeopleScreen';
+import AboutScreen from './pages/AboutScreen';
+import SettingsScreen from './pages/SettingsScreen';
+import NavigationDrawerStructure from'./api/NavigationDrawerStructure'
 
 const SearchStack = createStackNavigator(
   {
     Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
     Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
@@ -32,7 +36,6 @@ const SearchStack = createStackNavigator(
 const TeamStack = createStackNavigator(
   {
     Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
     Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
@@ -50,7 +53,6 @@ const TeamStack = createStackNavigator(
 const ProfileStack = createStackNavigator(
   {
     Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
     Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
@@ -65,28 +67,9 @@ const ProfileStack = createStackNavigator(
     },
   }
 );
-const SportsStack = createStackNavigator(
-  {
-    Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
-    Seach: { screen: SearchScreen },
-    Team: { screen: TeamScreen },
-    Profile: { screen: ProfileScreen },
-  },
-  {
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: '#EB9005',
-      },
-      headerTintColor: '#FFFFFF',
-      title: 'Sports',
-    },
-  }
-);
 const FeedStack = createStackNavigator(
   {
     Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
     Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
@@ -101,10 +84,10 @@ const FeedStack = createStackNavigator(
     },
   }
 );
-const App = createBottomTabNavigator(
+
+const SearchNavigator = createBottomTabNavigator(
   {
     Feed: { screen: FeedScreen },
-    Sports: { screen: SportsScreen },
     Seach: { screen: SearchScreen },
     Team: { screen: TeamScreen },
     Profile: { screen: ProfileScreen },
@@ -117,8 +100,6 @@ const App = createBottomTabNavigator(
         let iconName;
         if (routeName === 'Feed') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        }else if (routeName === 'Sports') {
-          iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Search') {
           iconName = `ios-checkmark-circle${focused ? '' : '-outline'}`;
         }else if (routeName === 'Team') {
@@ -135,4 +116,85 @@ const App = createBottomTabNavigator(
     },
   }
 );
-export default createAppContainer(App);
+
+const Search_StackNavigator = createStackNavigator({
+  First: {
+    screen: SearchNavigator,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Profile',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#EB9005',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+const Profile_StackNavigator = createStackNavigator({
+  First: {
+    screen: ProfileScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Profile',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#EB9005',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Settings_StackNavigator = createStackNavigator({
+  First: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Settings',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#EB9005',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+const About_StackNavigator = createStackNavigator({
+  First: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'About',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#EB9005',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+const DrawerNavigatorExample = createDrawerNavigator({
+  
+  MainScreen: {
+    screen: Search_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Main',
+    },
+  },
+  ProfileScreen: {
+    screen: Profile_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Profile',
+    },
+  },
+  SettingsScreen: {
+    screen: Settings_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Settings',
+    },
+  },
+  AboutScreen: {
+    screen: About_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'About',
+    },
+  },
+});
+export default createAppContainer(DrawerNavigatorExample);
