@@ -1,0 +1,36 @@
+{
+    "data":[
+        {
+            "id": "00000001",
+            "name": "john",
+            "surname": "doe",
+            "nick":"johhnnn",
+            "adress":"london",
+            "sports": ["basketball","running"]
+        },
+        {
+            "id": "00000002",
+            "name": "max",
+            "surname": "mustermann",
+            "nick":"maxxxx",
+            "adress":"berlin",
+            "sports": ["running"]
+        },
+        {
+            "id": "00000003",
+            "name": "cumhur",
+            "surname": "sayan",
+            "nick":"cumo",
+            "adress":"hamburg",
+            "sports": ["basketball","swimming"]
+        },
+        {
+            "id": "00000004",
+            "name": "berke",
+            "surname": "can",
+            "nick":"isin",
+            "adress":"kiel",
+            "sports": ["yoga","running"]
+        }
+    ]
+}

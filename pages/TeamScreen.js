@@ -1,15 +1,21 @@
 //This is an example code for Bottom Navigation//
 import React from 'react';
-//import react in our code.
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-//import all the basic component we have used
- 
-export default class TeamScreen extends React.Component {
-  //Detail Screen to show from any Open detail button
+import {Text, View, FlatList} from 'react-native';
+import DummyJsonData from '../dummy-json-data/DummyJsonData.js';
+
+export default class TeamScreen extends DummyJsonData {
+  constructor(props) {
+    super(props);
+    this.callbackFunction(require('../dummy-json-data/profiles.json').data);
+  }
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>REGISTERED TEAMS!</Text>
+      // eslint-disable-next-line react-native/no-inline-styles
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <FlatList
+          data={this.state.data}
+          renderItem={({item}) => <Text>{item.name}</Text>}
+        />
       </View>
     );
   }
