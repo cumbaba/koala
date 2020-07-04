@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
- 
+/* eslint-disable react-native/no-inline-styles */
+import React, {Component} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
+
 export default class PeopleScreen extends Component {
   render() {
     return (
       <View style={styles.MainContainer}>
-        <Text style={{ fontSize: 23 }}> People </Text>
+        <Text style={{fontSize: 23}}> People </Text>
       </View>
     );
   }
