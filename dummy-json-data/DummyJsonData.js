@@ -4,7 +4,7 @@ export default class DummyJsonData extends React.Component {
   constructor(props) {
     super(props);
 
-    this.callbackFunction = (data) => {
+    this.callbackFunction = data => {
       this.state = {
         data: data,
       };
