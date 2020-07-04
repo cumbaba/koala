@@ -9,7 +9,7 @@
 			},
 			"title": "abbasaga adamlari",
 			"capacity": 20,
-			"flags": ["basketball", "hip-hop", "zenciler", "cigara"]
+			"flags": ["basketball", "football", "parkour"]
 		},
 		{
 			"id": "2",
@@ -20,7 +20,7 @@
 			},
 			"title": "moda bebeleri",
 			"capacity": 30,
-			"flags": ["götçüler", "götçüler", "götçüler", "götçüler"]
+			"flags": ["basketball", "tennis", "yoga"]
 		}
 	]
 }
