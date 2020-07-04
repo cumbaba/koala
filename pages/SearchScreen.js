@@ -30,7 +30,7 @@ export default class SearchScreen extends React.Component {
                 anchor={{x: 0, y: 1}} // TODO position the anchor after the icons have been enhanced
                 coordinate={marker.coordinates}
                 title={marker.title}
-                image={require('./../icons/map_icons/sports/basketball.png')}
+                image={getAreaIcon(marker.flags)}
               />
             ))}
           </MapView>
@@ -39,6 +39,20 @@ export default class SearchScreen extends React.Component {
     );
   }
 }
+export function getAreaIcon(args) {
+  if (args.includes('basketball')) {
+    return require('./../icons/map_icons/sports/basketball.png');
+  }
+  if (args.includes('football')) {
+    return require('./../icons/map_icons/sports/football.png');
+  }
+  if (args.includes('tennis')) {
+    return require('./../icons/map_icons/sports/tennis.png');
+  }
+
+  return require('./../icons/map_icons/sports/tennis.png');
+}
+
 const styles = StyleSheet.create({
   MainContainer: {
     position: 'absolute',
